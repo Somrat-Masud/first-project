@@ -2,15 +2,16 @@ import mongoose from "mongoose";
 import config from "./app/config";
 import app from "./app";
 
-main().catch((err) => console.log(err));
 async function main() {
   try {
+    // console.log(config.databse_url)
     await mongoose.connect(config.databse_url as string);
     app.listen(config.port, () => {
-      console.log(`Example app listening on port ${config.port}`);
+      console.log(` app listening on port ${config.port}`);
     });
   } catch (err) {
     console.log(err);
   }
 }
+
 main();
